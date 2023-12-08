@@ -1,0 +1,12 @@
+<!-- crear_mensaje.html -->
+{% extends "base.html" %}
+{% block content %}
+<h1>Crear un nuevo mensaje</h1>
+
+<form method="post" action="/crear/">
+    {% csrf_token %}
+  <label for="texto">Texto:</label>
+  <input type="text" id="texto" name="texto" required>
+  <button type="submit">Enviar</button>
+</form>
+{% endblock content %}

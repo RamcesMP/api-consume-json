@@ -1,0 +1,11 @@
+<!-- editar_mensaje.html -->
+{% extends "base.html" %}
+{% block content %}
+<h1>Editar el mensaje {{ mensaje.id }}</h1>
+<form method="post" action="/{{ mensaje.id }}/editar/">
+    {% csrf_token %}
+  <label for="texto">Texto:</label>
+  <input type="text" id="texto" name="texto" value="{{ mensaje.texto }}" required>
+  <button type="submit">Enviar</button>
+</form>
+{% endblock content %}

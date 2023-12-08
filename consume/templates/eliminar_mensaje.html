@@ -1,0 +1,13 @@
+<!-- eliminar_mensaje.html -->
+{% extends "base.html" %}
+{% block content %}
+<h1>Eliminar el mensaje {{ mensaje.id }}</h1>
+<p>¿Estás seguro de que quieres eliminar el mensaje "{{ mensaje.texto }}"?</p>
+
+<form method="post" action="/{{ mensaje.id }}/eliminar/">{% csrf_token %}
+    <!-- Agregamos un input oculto con el método HTTP DELETE -->
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit">Eliminar</button>
+    <a href="{% url 'home' %}">No </a>
+  </form>
+{% endblock content %}
